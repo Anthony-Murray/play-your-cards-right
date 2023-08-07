@@ -9,5 +9,38 @@
         } else {
             alert("Welcome! Let's play...Play Your Cards Right!");
         }
+
+function createDeck() {
+
+}
+
+function shuffleDeck() {
+
+}
+
+function displayCard() {
+
+}
+
+function guesshigh() {
+
+}
+
+function guesslow() {
+
+}
+
+function gamewin() {
+
+}
+
+function gameover() {
+
+}
+
+function gamereset() {
+
+}
+
     });
     
