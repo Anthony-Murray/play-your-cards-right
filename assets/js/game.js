@@ -30,6 +30,14 @@ function displayCard() {
     console.log("Displaying card:", currentCard);
 }
 
+function updateScoreboard() {
+    console.log("Updating scoreboard with score, lives and cards remaining :", score, "lives remaining:", livesRemaining, "cards remaining:", deck.length);
+    document.getElementById("score").textContent = score;
+    document.getElementById("lives-remaining").textContent = livesRemaining;
+    document.getElementById("cards-remaining").textContent = deck.length;
+}
+
+
 document.getElementById("start-game").addEventListener("click", function() {
     let playerName = document.getElementById("player-name").value;
 
@@ -45,6 +53,7 @@ document.getElementById("start-game").addEventListener("click", function() {
     createDeck();
     shuffleDeck();
     displayCard();
+    updateScoreboard();
 });
 
 /*function shuffleDeck() {*/
