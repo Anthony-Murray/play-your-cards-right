@@ -26,8 +26,10 @@ function shuffleDeck() {
 }
 
 function displayCard() {
-    currentCard = deck.pop();
-    console.log("Displaying card:", currentCard);
+    const currentCard = deck.pop(); 
+    const cardImage = `assets/images/cards/${currentCard.value}_of_${currentCard.suit}.png`;
+    document.getElementById("playing-card").innerHTML = `<img src="${cardImage}" alt="${currentCard.value} of ${currentCard.suit}">`;
+    updateScoreboard();
 }
 
 function updateScoreboard() {
@@ -37,24 +39,36 @@ function updateScoreboard() {
     document.getElementById("cards-remaining").textContent = deck.length;
 }
 
+function getValue(cardValue) { /*https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt*/
+    if (cardValue === 'Ace') return 14;
+    if (cardValue === 'King') return 13;
+    if (cardValue === 'Queen') return 12;
+    if (cardValue === 'Jack') return 11;
+    return parseInt(cardValue, 10);
+}
+
 function guessHigh() {
+    const currentCard = deck.pop();
     const nextCard = deck[deck.length - 1];
-    if (nextCard.value > currentCard.value) {
+    if (getValue(nextCard.value) > getValue(currentCard.value)) {
         score++;
     } else {
         livesRemaining--;
     }
     displayCard();
+    updateScoreboard();
 }
 
 function guessLow() {
+    const currentCard = deck.pop();
     const nextCard = deck[deck.length - 1];
-    if (nextCard.value < currentCard.value) {
+    if (getValue(nextCard.value) < getValue(currentCard.value)) {
         score++;
     } else {
         livesRemaining--;
     }
     displayCard();
+    updateScoreboard();
 }
 
 
