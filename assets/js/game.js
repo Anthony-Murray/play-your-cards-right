@@ -37,6 +37,26 @@ function updateScoreboard() {
     document.getElementById("cards-remaining").textContent = deck.length;
 }
 
+function guessHigh() {
+    const nextCard = deck[deck.length - 1];
+    if (nextCard.value > currentCard.value) {
+        score++;
+    } else {
+        livesRemaining--;
+    }
+    displayCard();
+}
+
+function guessLow() {
+    const nextCard = deck[deck.length - 1];
+    if (nextCard.value < currentCard.value) {
+        score++;
+    } else {
+        livesRemaining--;
+    }
+    displayCard();
+}
+
 
 document.getElementById("start-game").addEventListener("click", function() {
     let playerName = document.getElementById("player-name").value;
@@ -56,19 +76,22 @@ document.getElementById("start-game").addEventListener("click", function() {
     updateScoreboard();
 });
 
+document.querySelector("[data-action='higher']").addEventListener("click", guessHigh);
+document.querySelector("[data-action='lower']").addEventListener("click", guessLow);
+
 /*function shuffleDeck() {*/
 
 
 /*function displayCard() {*/
 
 
-function guesshigh() {
+/*function guesshigh() {
 
-}
+}*/
 
-function guesslow() {
+/*function guesslow() {
 
-}
+}*/
 
 function gamewin() {
 
