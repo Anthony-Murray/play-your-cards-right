@@ -17,6 +17,14 @@ function createDeck() { /*https://wsvincent.com/javascript-object-oriented-deck-
     console.log('Deck created:', deck);
 }
 
+function shuffleDeck() {
+    for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+    console.log('Deck shuffled:', deck);
+}
+
 document.getElementById("start-game").addEventListener("click", function() {
     let playerName = document.getElementById("player-name").value;
 
@@ -30,11 +38,11 @@ document.getElementById("start-game").addEventListener("click", function() {
     }
 
     createDeck();
+    shuffleDeck();
 });
 
-function shuffleDeck() {
+/*function shuffleDeck() {*/
 
-}
 
 function displayCard() {
 
