@@ -25,6 +25,11 @@ function shuffleDeck() {
     console.log('Deck shuffled:', deck);
 }
 
+function displayCard() {
+    currentCard = deck.pop();
+    console.log("Displaying card:", currentCard);
+}
+
 document.getElementById("start-game").addEventListener("click", function() {
     let playerName = document.getElementById("player-name").value;
 
@@ -39,14 +44,14 @@ document.getElementById("start-game").addEventListener("click", function() {
 
     createDeck();
     shuffleDeck();
+    displayCard();
 });
 
 /*function shuffleDeck() {*/
 
 
-function displayCard() {
+/*function displayCard() {*/
 
-}
 
 function guesshigh() {
 
