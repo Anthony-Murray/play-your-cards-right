@@ -1,18 +1,36 @@
-    document.getElementById("start-game").addEventListener("click", function() {
-        let playerName = document.getElementById("player-name").value;
+let score = 0;
+let livesRemaining = 3;
+let cardsRemaining = 52;
+let deck = [];
 
-        document.getElementById("player-name-input").style.display = "none";
-        document.getElementById("game-content").style.display = "block";
+function createDeck() { /*https://wsvincent.com/javascript-object-oriented-deck-cards/*/
+    const suits = ['hearts', 'spades', 'clubs', 'diamonds'];
+    const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
 
-        if (playerName) {
-            alert(`Welcome, ${playerName}! Let's play...Play Your Cards Right!`);
-        } else {
-            alert("Welcome! Let's play...Play Your Cards Right!");
+    for (let suit of suits) {
+        for (let value of values) {
+            deck.push({ value, suit });
         }
+    }
 
-function createDeck() {
-
+    cardsRemaining = deck.length;
+    console.log('Deck created:', deck);
 }
+
+document.getElementById("start-game").addEventListener("click", function() {
+    let playerName = document.getElementById("player-name").value;
+
+    document.getElementById("player-name-input").style.display = "none";
+    document.getElementById("game-content").style.display = "block";
+
+    if (playerName) {
+        alert(`Welcome, ${playerName}! Let's play...Play Your Cards Right!`);
+    } else {
+        alert("Welcome! Let's play...Play Your Cards Right!");
+    }
+
+    createDeck();
+});
 
 function shuffleDeck() {
 
@@ -42,5 +60,5 @@ function gamereset() {
 
 }
 
-    });
+
     
